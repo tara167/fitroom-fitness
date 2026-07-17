@@ -219,6 +219,15 @@ p{ margin:0 0 1em; }
 /* =========================================================
    PRICING
    ========================================================= */
+.promo{ display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap; background:var(--lime); color:var(--ink); border-radius:3px; padding:clamp(32px,4vw,56px); margin-bottom:clamp(12px,1.4vw,20px); position:relative; overflow:hidden; }
+.promo::before{ content:""; position:absolute; inset:0; background:radial-gradient(110% 130% at 100% 0%, rgba(255,255,255,.28), transparent 55%); pointer-events:none; }
+.promo .founder__main{ position:relative; }
+.promo .founder__tag{ color:var(--ink); opacity:.7; }
+.promo h3{ font-size:clamp(2.2rem,4.5vw,3.8rem); letter-spacing:-.04em; margin-bottom:.3em; }
+.promo p{ color:var(--ink); opacity:.85; font-size:1.1rem; }
+.promo strong{ color:var(--ink); opacity:1; font-weight:700; }
+.promo .btn{ background:var(--ink); color:var(--paper); border-color:var(--ink); flex:none; position:relative; }
+.promo .btn:hover{ color:var(--ink); background:var(--paper); }
 .founder{ display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap; background:var(--ink); color:var(--paper); border-radius:3px; padding:clamp(26px,3.4vw,46px); margin-bottom:clamp(18px,2vw,30px); position:relative; overflow:hidden; }
 .founder::before{ content:""; position:absolute; inset:0; background:radial-gradient(120% 150% at 100% 0%, var(--lime-gl), transparent 52%); pointer-events:none; }
 .founder__main{ position:relative; max-width:62ch; }
@@ -380,3 +389,21 @@ p{ margin:0 0 1em; }
   *{ animation:none !important; transition:none !important; }
   .reveal,.reveal-line>span{ opacity:1 !important; transform:none !important; }
 }
+
+/* =========================================================
+   PROMO POPUP
+   ========================================================= */
+.promo-popup{ position:fixed; inset:0; z-index:9000; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s ease; }
+.promo-popup.open{ opacity:1; pointer-events:auto; }
+.promo-popup__backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.75); backdrop-filter:blur(4px); }
+.promo-popup__box{ position:relative; background:var(--black-2); color:var(--paper); border-radius:4px; border:1px solid rgba(140,198,63,.25); padding:clamp(36px,5vw,60px); max-width:460px; width:90%; text-align:center; transform:translateY(28px) scale(.97); transition:transform .35s var(--ease), opacity .35s ease; box-shadow:0 0 60px rgba(140,198,63,.12), 0 24px 64px rgba(0,0,0,.6); }
+.promo-popup.open .promo-popup__box{ transform:translateY(0) scale(1); }
+.promo-popup__close{ position:absolute; top:14px; right:18px; background:none; border:none; font-size:1.6rem; line-height:1; cursor:pointer; color:var(--paper); opacity:.4; transition:opacity .2s; }
+.promo-popup__close:hover{ opacity:1; }
+.promo-popup__tag{ font-size:.68rem; letter-spacing:3px; color:var(--lime); display:block; margin-bottom:1.2rem; }
+.promo-popup__title{ font-size:clamp(2rem,5vw,3rem); font-weight:800; letter-spacing:-.04em; line-height:1.05; margin-bottom:1rem; color:var(--paper); }
+.promo-popup__title em{ color:var(--lime); font-style:normal; }
+.promo-popup__body{ font-size:1.05rem; color:var(--paper); opacity:.9; margin-bottom:.5rem; }
+.promo-popup__body strong{ color:var(--lime); }
+.promo-popup__note{ font-size:.68rem; letter-spacing:1.5px; color:var(--paper); opacity:.4; margin-bottom:2rem; display:block; }
+.promo-popup__cta{ background:var(--lime) !important; color:var(--ink) !important; border-color:var(--lime) !important; display:inline-block; font-weight:700; }
