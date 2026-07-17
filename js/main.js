@@ -6,8 +6,8 @@
 const CONFIG = {
   // WhatsApp in full international format, digits only (no +, spaces or dashes).
   // Confirmed from the Santa Teresa flyer: "Reservation required at +506 7253-2299".
-  whatsappNumber: "50670546982",            // +506 7054 6982
-  whatsappDisplay: "+506 7054 6982",
+  whatsappNumber: "50672532299",            // +506 7253 2299
+  whatsappDisplay: "+506 7253 2299",
   whatsappMessage: "Hi Fit Room! I'd love to book a class 🌿",
   instagram: "https://www.instagram.com/fitroom_santateresa",
 };
@@ -117,3 +117,24 @@ const CONFIG = {
     });
   }
 })();
+
+/* --- Green Season Special popup --- */
+(function () {
+  const popup = document.getElementById("promoPopup");
+  const close = document.getElementById("promoClose");
+  const backdrop = document.getElementById("promoBackdrop");
+  if (!popup) return;
+
+  const closePopup = () => { popup.classList.remove("open"); document.body.style.overflow = ""; };
+  const openPopup = () => { popup.classList.add("open"); document.body.style.overflow = "hidden"; };
+
+  close.addEventListener("click", closePopup);
+  backdrop.addEventListener("click", closePopup);
+  document.getElementById("promoWA").addEventListener("click", closePopup);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closePopup(); });
+
+  // Show after 2 seconds, once per visit
+  if (!sessionStorage.getItem("promoSeen")) {
+    setTimeout(() => { openPopup(); sessionStorage.setItem("promoSeen", "1"); }, 2000);
+  }
+}());
