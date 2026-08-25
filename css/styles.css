@@ -178,6 +178,13 @@ p{ margin:0 0 1em; }
 .about__media img{ width:100%; aspect-ratio:21/9; object-fit:cover; border-radius:3px; }
 
 /* =========================================================
+   BEACH GALLERY
+   ========================================================= */
+.beach-gallery__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:clamp(24px,4vw,40px); }
+.beach-gallery__item{ overflow:hidden; border-radius:3px; }
+.beach-gallery__item img{ width:100%; aspect-ratio:3/4; object-fit:cover; display:block; }
+
+/* =========================================================
    CLASSES
    ========================================================= */
 .class-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); border-radius:3px; overflow:hidden; }
@@ -360,6 +367,7 @@ p{ margin:0 0 1em; }
 @media (max-width:1000px){
   .about__grid{ grid-template-columns:1fr; grid-template-areas:"head" "copy" "media"; }
   .class-grid{ grid-template-columns:repeat(2,1fr); }
+  .beach-gallery__grid{ grid-template-columns:repeat(2,1fr); }
   .benefits-grid{ grid-template-columns:repeat(2,1fr); }
   .price-grid{ grid-template-columns:1fr; }
   .price-card--feature{ order:-1; }
@@ -374,6 +382,7 @@ p{ margin:0 0 1em; }
   .hero__bottom{ flex-direction:column; align-items:flex-start; gap:30px; }
   .hero__media img{ aspect-ratio:4/3; }
   .class-grid{ grid-template-columns:1fr; }
+  .beach-gallery__grid{ grid-template-columns:1fr; }
   .benefits-grid{ grid-template-columns:1fr; }
   .team-grid{ grid-template-columns:1fr; }
   .member{ grid-template-columns:1fr; }
